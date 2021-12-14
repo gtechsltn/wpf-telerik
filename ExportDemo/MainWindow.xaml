@@ -1,0 +1,49 @@
+﻿<Window x:Class="ExportDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="RadRichTextBox Export Demo" Width="650" Height="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <telerik:RadRichTextBoxRibbonUI CollapseThresholdSize="50,50" DataContext="{Binding Commands, ElementName=radRichTextBox}">
+            <telerik:RadRibbonTab Header="Edit">
+                <telerik:RadRibbonGroup Header="Format">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding ToggleBoldCommand}" Size="Small" Text="Bold" telerik:ScreenTip.Title="Bold" SmallImage="/Icons/bold.png"/>
+                        <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding ToggleItalicCommand}" Size="Small" Text="Italic" telerik:ScreenTip.Title="Italic" SmallImage="/Icons/italic.png"/>
+                        <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding ToggleUnderlineCommand}" Size="Small" Text="Underline" telerik:ScreenTip.Title="Underline" SmallImage="/Icons/underline.png"/>
+                    </StackPanel>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="Export">
+                    <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding SaveCommand}" telerik:CommandParameter="html" Size="Large" Text="HTML" telerik:ScreenTip.Title="Export to HTML" SmallImage="/Icons/html.png"/>
+                    <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding SaveCommand}" telerik:CommandParameter="pdf" Size="Large" Text="PDF" telerik:ScreenTip.Title="Export to PDF" SmallImage="/Icons/pdf.png"/>
+                    <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding SaveCommand}" telerik:CommandParameter="rtf" Size="Large" Text="RTF" telerik:ScreenTip.Title="Export to RTF" SmallImage="/Icons/rtf.png"/>
+                    <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding SaveCommand}" telerik:CommandParameter="docx" Size="Large" Text="DOCX" telerik:ScreenTip.Title="Export to DOCX" SmallImage="/Icons/docx.png"/>
+                    <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding SaveCommand}" telerik:CommandParameter="xaml" Size="Large" Text="XAML" telerik:ScreenTip.Title="Export to XAML" SmallImage="/Icons/xaml.png"/>
+                    <telerik:RadRibbonButton telerik:RadRichTextBoxRibbonUI.RichTextCommand="{Binding SaveCommand}" telerik:CommandParameter="txt" Size="Large" Text="TXT" telerik:ScreenTip.Title="Export to TXT" SmallImage="/Icons/txt.png"/>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+        </telerik:RadRichTextBoxRibbonUI>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <telerik:RadRichTextBox x:Name="radRichTextBox"
+                                VerticalAlignment="Stretch"
+                                Margin="10" Grid.Column="0"/>
+            <StackPanel Orientation="Vertical" Margin="10" Grid.Column="1">
+                <Button Content="Export to HTML" Width="150" Height="26" Margin="5" Click="OnExportToHtmlClicked"/>
+                <Button Content="Export to PDF" Width="150" Height="26" Margin="5" Click="OnExportToPdfClicked"/>
+                <Button Content="Export to RTF" Width="150" Height="26" Margin="5" Click="OnExportToRtfClicked"/>
+                <Button Content="Export to DOCX" Width="150" Height="26" Margin="5" Click="OnExportToDocxClicked"/>
+                <Button Content="Export to XAML" Width="150" Height="26" Margin="5" Click="OnExportToXamlClicked"/>
+                <Button Content="Export to TXT" Width="150" Height="26" Margin="5" Click="OnExportToTxtClicked"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
